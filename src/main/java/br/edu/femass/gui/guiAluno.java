@@ -6,30 +6,29 @@ import br.edu.femass.model.Aluno;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.text.MaskFormatter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
 public class guiAluno {
     private javax.swing.JPanel JPanel;
-    private JFormattedTextField txtNomeAluno;
-    private JFormattedTextField txtEnderecoAluno;
-    private JFormattedTextField txtTelefoneAluno;
-    private JFormattedTextField txtMatriculaAluno;
-    private JButton btnRegistrarAluno;
+    private JFormattedTextField txtNome;
+    private JFormattedTextField txtEndereco;
+    private JFormattedTextField txtTelefone;
+    private JFormattedTextField txtMatricula;
+    private JButton btnOk;
     private JList lstAluno;
 
     public JPanel getJPanel() { return JPanel; }
 
     public guiAluno() {
 
-        btnRegistrarAluno.addActionListener(new ActionListener() {
+        btnOk.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Aluno aluno = new Aluno(txtNomeAluno.getText(), txtEnderecoAluno.getText(),
-                            txtTelefoneAluno.getText(), txtMatriculaAluno.getText());
+                    Aluno aluno = new Aluno(txtNome.getText(), txtEndereco.getText(),
+                            txtTelefone.getText(), txtMatricula.getText());
                     new DaoAluno().save(aluno);
                     aluno.atualizarCodigo();
                     updateList();
@@ -43,10 +42,10 @@ public class guiAluno {
             public void valueChanged(ListSelectionEvent e) {
                 Aluno aluno = (Aluno) lstAluno.getSelectedValue();
                 if (aluno==null) return;
-                txtNomeAluno.setText(aluno.getNome());
-                txtEnderecoAluno.setText(aluno.getEndereco());
-                txtTelefoneAluno.setText(aluno.getTelefone());
-                txtMatriculaAluno.setText(aluno.getMatricula());
+                txtNome.setText(aluno.getNome());
+                txtEndereco.setText(aluno.getEndereco());
+                txtTelefone.setText(aluno.getTelefone());
+                txtMatricula.setText(aluno.getMatricula());
             }
         });
     }

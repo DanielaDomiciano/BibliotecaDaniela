@@ -1,0 +1,13 @@
+[ {
+  "codigo" : 1,
+  "dataAquisicao" : [ 2022, 10, 18 ],
+  "livro" : {
+    "codigo" : 1,
+    "titulo" : "Guerra dos Tronos",
+    "autor" : {
+      "nome" : "George",
+      "sobrenome" : "Martin",
+      "nacionalidade" : "EUA"
+    }
+  }
+} ]

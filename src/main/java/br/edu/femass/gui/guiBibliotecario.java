@@ -20,16 +20,7 @@ public class guiBibliotecario {
                 guiLivro guiLivro = new guiLivro();
                 guiAutor guiAutor = new guiAutor();
                 JFrame frame = new JFrame("Cadastro de Livro");
-                int result = JOptionPane.showConfirmDialog(frame,
-                        "Esse livro já consta em nosso cadastro ?", "Cadastro de Livro",
-                        JOptionPane.YES_NO_OPTION,
-                        JOptionPane.QUESTION_MESSAGE);
-                if (result == JOptionPane.YES_NO_OPTION) {
-                    frame.setContentPane(guiLivro.getJPanel());
 
-                } else if (result == JOptionPane.NO_OPTION){
-                    frame.setContentPane(guiAutor.getJPanel());
-                }
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
                 frame.setExtendedState(Frame.MAXIMIZED_BOTH);

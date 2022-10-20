@@ -1,25 +1,22 @@
 package br.edu.femass.gui;
 
-import br.edu.femass.dao.DaoAluno;
 import br.edu.femass.dao.DaoProfessor;
-import br.edu.femass.model.Aluno;
 import br.edu.femass.model.Professor;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.text.MaskFormatter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
 public class guiProfessor {
-    private JFormattedTextField txtNomeProfessor;
+    private JFormattedTextField txtNome;
     private javax.swing.JPanel JPanel;
-    private JFormattedTextField txtEnderecoProfessor;
-    private JFormattedTextField txtTelefoneProfessor;
-    private JFormattedTextField txtDisciplinaProfessor;
-    private JButton btnRegistrarProfessor;
+    private JFormattedTextField txtEndereco;
+    private JFormattedTextField txtTelefone;
+    private JFormattedTextField txtDisciplina;
+    private JButton btnOk;
     private JList lstProfessor;
 
     public JPanel getJPanel() {
@@ -27,12 +24,12 @@ public class guiProfessor {
     }
 
     public guiProfessor() {
-        btnRegistrarProfessor.addActionListener(new ActionListener() {
+        btnOk.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Professor professor = new Professor(txtNomeProfessor.getText(), txtEnderecoProfessor.getText(),
-                            txtTelefoneProfessor.getText(), txtDisciplinaProfessor.getText());
+                    Professor professor = new Professor(txtNome.getText(), txtEndereco.getText(),
+                            txtTelefone.getText(), txtDisciplina.getText());
                     new DaoProfessor().save(professor);
                     professor.atualizarCodigo();
                     updateList();
@@ -47,10 +44,10 @@ public class guiProfessor {
             public void valueChanged(ListSelectionEvent e) {
                 Professor professor = (Professor) lstProfessor.getSelectedValue();
                 if (professor==null) return;
-                txtNomeProfessor.setText(professor.getNome());
-                txtEnderecoProfessor.setText(professor.getEndereco());
-                txtTelefoneProfessor.setText(professor.getTelefone());
-                txtDisciplinaProfessor.setText(professor.getDisciplina());
+                txtNome.setText(professor.getNome());
+                txtEndereco.setText(professor.getEndereco());
+                txtTelefone.setText(professor.getTelefone());
+                txtDisciplina.setText(professor.getDisciplina());
             }
         });
     }

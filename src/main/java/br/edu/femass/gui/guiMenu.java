@@ -5,17 +5,17 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class guiPrincipal {
+public class guiMenu {
     private javax.swing.JPanel JPanel;
     private JButton btnBibliotecario;
     private JButton btnAtendente;
-    private JLabel lblBemVindo;
+    private JLabel lblInicial;
 
     public JPanel getJPanel() {
         return JPanel;
     }
 
-    public guiPrincipal() {
+    public guiMenu() {
         btnBibliotecario.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

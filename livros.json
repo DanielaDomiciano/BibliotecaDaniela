@@ -1,0 +1,9 @@
+[ {
+  "codigo" : 1,
+  "titulo" : "Guerra dos Tronos",
+  "autor" : {
+    "nome" : "George",
+    "sobrenome" : "Martin",
+    "nacionalidade" : "EUA"
+  }
+} ]
